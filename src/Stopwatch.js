@@ -61,20 +61,20 @@ export default class Stopwatch extends React.Component {
 
                 {(this.state.secondsElapsed === 0 ||
                     this.incrementer === this.state.lastClearedIncrementer
-                    ? <Button className="start-btn" onClick={this.handleStartClick.bind(this)}><PlayArrow/></Button>
-                    : <Button className="stop-btn" onClick={this.handleStopClick.bind(this)}><Pause /></Button>
+                    ? <Tooltip title="Start Timer"><Button className="start-btn" onClick={this.handleStartClick.bind(this)}><PlayArrow/></Button></Tooltip>
+                    : <Tooltip title="Pause Timer"><Button className="stop-btn" onClick={this.handleStopClick.bind(this)}><Pause /></Button></Tooltip>
                 )}
 
                 {(this.state.secondsElapsed !== 0 &&
                     this.incrementer !== this.state.lastClearedIncrementer
-                    ? <Button onClick={this.handleLabClick.bind(this)}><PlaylistAdd /></Button>
+                    ? <Tooltip title="Lap the Time Stamp"><Button onClick={this.handleLabClick.bind(this)}><PlaylistAdd /></Button></Tooltip>
                     : null
                 )}
 
 
                 {(this.state.secondsElapsed !== 0 &&
                     this.incrementer === this.state.lastClearedIncrementer
-                    ? <Button onClick={this.handleResetClick.bind(this)}><Restore /></Button>
+                    ? <Tooltip title="Reset Timer"><Button onClick={this.handleResetClick.bind(this)}><Restore /></Button></Tooltip>
                     : null
                 )}
 
